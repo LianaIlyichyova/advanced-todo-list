@@ -2,7 +2,7 @@ import type { DefaultTheme } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { ConfigProvider, App as AntdApp } from "antd";
 import { Route, Routes } from "react-router";
-import { HomePage } from "./pages";
+import { DetailView, HomePage } from "./pages";
 import themes from "./styles/themes";
 import spacingConfigs from "@styles/spacingConfigs";
 import type { ThemeType } from "./styles/constants";
@@ -12,6 +12,8 @@ import CSSResetStyles from "./configs/css-reset";
 import { decrement, increment } from "./store/countSlice";
 import type { AppDispatch, RootState } from "./store";
 import ThemeToggle from "@components/themeToggle";
+
+import { RouterPaths } from "@utils/routes";
 
 function App() {
   const count = useSelector((state: RootState) => state.count.count);
@@ -27,8 +29,6 @@ function App() {
 
   const styledTheme: DefaultTheme = baseTheme as DefaultTheme;
 
-  console.log(styledTheme, antdTheme);
-
   return (
     <div className="App">
       <CSSResetStyles />
@@ -36,7 +36,8 @@ function App() {
         <ThemeProvider theme={styledTheme}>
           <AntdApp>
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path={RouterPaths.Home} element={<HomePage />} />
+              <Route path={RouterPaths.DetailView} element={<DetailView />} />
             </Routes>
             <div>{count}</div>
             <button onClick={() => dispatch(increment())}> +</button>

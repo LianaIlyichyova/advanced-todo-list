@@ -25,7 +25,7 @@ const dark: ThemeConfig = {
       headerBg: "transparent",
     },
     Select: {
-      colorBgContainer: "red",
+      // colorBgContainer: "red",
     },
   },
 };

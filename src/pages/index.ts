@@ -1,3 +1,4 @@
-import HomePage from "./home";
+import HomePage from "./Home";
+import DetailView from "./DetailView";
 
-export { HomePage };
+export { HomePage, DetailView };
