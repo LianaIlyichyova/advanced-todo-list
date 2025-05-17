@@ -30,9 +30,10 @@ const GlobalCSSReset = createGlobalStyle`
     list-style: none;
   }
 
-  p{
-
+  p {
+    
   }
+ 
 `;
 
 export default GlobalCSSReset;

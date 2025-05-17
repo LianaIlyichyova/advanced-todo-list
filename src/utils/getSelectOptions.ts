@@ -1,4 +1,4 @@
-import capitalize from "lodash.capitalize";
+import { capitalize } from "lodash";
 
 export const getSelectOptions = (options: string[]) => {
   return options.map((option) => {

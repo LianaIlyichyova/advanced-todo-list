@@ -1,59 +1,52 @@
-import type { DefaultTheme } from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { ConfigProvider, App as AntdApp } from "antd";
+import { useSelector } from "react-redux";
+import { ConfigProvider, App as AntdApp, Spin } from "antd";
 import { Route, Routes } from "react-router";
-import { DetailView, HomePage } from "./pages";
-import themes from "./styles/themes";
-import spacingConfigs from "@styles/spacingConfigs";
-import type { ThemeType } from "./styles/constants";
-import { ThemeProvider } from "styled-components";
-import merge from "lodash.merge";
-import CSSResetStyles from "./configs/css-reset";
-import { decrement, increment } from "./store/countSlice";
-import type { AppDispatch, RootState } from "./store";
-import ThemeToggle from "@components/themeToggle";
+import { lazy, Suspense } from "react";
 
+import merge from "lodash.merge";
+import type { RootState } from "./store";
+
+import ThemeToggle from "@components/ThemeToggle";
 import { RouterPaths } from "@utils/routes";
 
-function App() {
-  const count = useSelector((state: RootState) => state.count.count);
-  const currentTheme = useSelector((state: RootState) => state.theme.theme);
-  const dispatch = useDispatch<AppDispatch>();
+import CSSResetStyles from "@styles/css-reset";
+import type { ThemeType } from "./styles/constants";
+import { ThemeProvider, type DefaultTheme } from "styled-components";
+import baseTokens from "@styles/baseTokens";
+import themes from "./styles/themes";
 
+const HomePage = lazy(() => import("./pages/Home"));
+const DetailView = lazy(() => import("./pages/DetailView"));
+
+function App() {
+  const currentTheme = useSelector((state: RootState) => state.theme.theme);
   const baseTheme = themes[currentTheme as ThemeType];
 
   const antdTheme = {
-    token: baseTheme.token,
-    components: merge({}, baseTheme.components, spacingConfigs),
+    token: {
+      ...baseTokens.token,
+      ...baseTheme.token,
+    },
+    components: merge({}, baseTheme.components, baseTokens.components),
   };
 
   const styledTheme: DefaultTheme = baseTheme as DefaultTheme;
 
   return (
-    <div className="App">
-      <CSSResetStyles />
-      <ConfigProvider theme={antdTheme}>
-        <ThemeProvider theme={styledTheme}>
-          <AntdApp>
+    <ConfigProvider theme={antdTheme}>
+      <ThemeProvider theme={styledTheme}>
+        <CSSResetStyles />
+        <AntdApp>
+          <Suspense fallback={<Spin fullscreen />}>
             <Routes>
               <Route path={RouterPaths.Home} element={<HomePage />} />
               <Route path={RouterPaths.DetailView} element={<DetailView />} />
             </Routes>
-            <div>{count}</div>
-            <button onClick={() => dispatch(increment())}> +</button>
-            <button onClick={() => dispatch(decrement())}> -</button>
-            <button
-              onClick={() =>
-                dispatch(() => setTimeout(() => dispatch(increment()), 300))
-              }
-            >
-              async
-            </button>
-            <ThemeToggle />
-          </AntdApp>
-        </ThemeProvider>
-      </ConfigProvider>
-    </div>
+          </Suspense>
+          <ThemeToggle />
+        </AntdApp>
+      </ThemeProvider>
+    </ConfigProvider>
   );
 }
 

@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const StyledLayout = styled(Layout)`
   min-height: 100vh;
+  width: 100%;
 
   .ant-divider-horizontal {
     margin: 0;
@@ -25,4 +26,6 @@ const StyledContent = styled(Layout.Content)`
   gap: ${spacings.l}px;
 `;
 
-export { StyledContent, StyledLayout, StyledHeader };
+const StyledSider = styled(Layout.Sider)``;
+
+export { StyledContent, StyledLayout, StyledHeader, StyledSider };

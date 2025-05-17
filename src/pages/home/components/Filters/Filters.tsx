@@ -1,5 +1,5 @@
 import { StyledFilters, StyledSelect } from "./Filters.styles";
-import { Priority, Category } from "@shared-types/filters";
+import { Priority, Category } from "@assets/filters";
 import { getSelectOptions } from "@utils/getSelectOptions";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "@store/index";
@@ -20,12 +20,16 @@ const Filters = () => {
           <StyledSelect
             options={priorityFilterOptions}
             onChange={(value) => dispatch(setPriority(value))}
+            mode="multiple"
           />
         </Form.Item>
         <Form.Item label="Filter by category:">
           <StyledSelect
             options={categoryFilterOptions}
-            onChange={(value) => dispatch(setCategory(value))}
+            onChange={(value) => {
+              dispatch(setCategory(value));
+            }}
+            mode="multiple"
           />
         </Form.Item>
       </StyledFilters>

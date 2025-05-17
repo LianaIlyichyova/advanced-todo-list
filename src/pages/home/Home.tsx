@@ -1,4 +1,6 @@
-import { Filters, Header, PageLayout } from "./components";
+import { Filters, Header } from "./components";
+import PageLayout from "@components/PageLayout";
+import Board from "./components/Board";
 
 const HomePage = () => {
   return (
@@ -7,7 +9,7 @@ const HomePage = () => {
       content={
         <>
           <Filters />
-          <div>Content</div>
+          <Board />
         </>
       }
     />

@@ -2,7 +2,8 @@ import { Switch } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@store/themeSlice";
 import type { RootState } from "@store/index";
-import { StyledThemeToggleWrapper } from "./themeToggle.styles";
+import { StyledThemeToggleWrapper } from "./ThemeToggle.styles";
+import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 
 const ThemeToggle = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -17,8 +18,8 @@ const ThemeToggle = () => {
         onChange={(checked) =>
           dispatch(toggleTheme(checked ? "dark" : "light"))
         }
-        checkedChildren="🌙"
-        unCheckedChildren="🌞"
+        checkedChildren={<MoonOutlined />}
+        unCheckedChildren={<SunOutlined />}
       />
     </StyledThemeToggleWrapper>
   );
