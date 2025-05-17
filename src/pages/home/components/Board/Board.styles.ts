@@ -13,23 +13,21 @@ const ColumnWrapper = styled.div`
   min-width: 320px;
 `;
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.div<{ isDragging?: boolean }>`
+  width: 350px;
   background: ${({ theme }) => theme.token.colorPrimaryBg};
   border-radius: 12px;
   box-shadow: 0 0 2px ${({ theme }) => theme.token.colorTextPrimary};
   padding: ${spacings.s}px;
   margin-bottom: ${spacings.s}px;
+  opacity: ${({ isDragging }) => (isDragging ? 0.5 : 1)};
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
 `;
 
 const CardTitle = styled(Typography)`
   margin-bottom: ${spacings.xs};
   white-space: normal;
-  word-break: break-word; /* или overflow-wrap: anywhere; */
-`;
-
-const CardDescription = styled.p`
-  font-size: ${fontSizes.sm};
-  color: #666;
+  word-break: break-word;
 `;
 
 const CardFooter = styled.div`
@@ -104,7 +102,6 @@ const CategoryTag = styled.span<{ $color: string }>`
 export {
   TitleText,
   CountCircle,
-  CardDescription,
   ColumnHeader,
   ColumnWrapper,
   HeaderContent,

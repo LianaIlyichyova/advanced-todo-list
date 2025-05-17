@@ -1,4 +1,4 @@
 export const RouterPaths = {
   Home: "/",
-  DetailView: "/detail-view/:id",
+  DetailView: "/detail-view",
 };

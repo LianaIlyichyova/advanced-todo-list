@@ -7,4 +7,5 @@ export interface Todo {
   status: TodoStatus;
   priority?: string;
   category?: string;
+  order: number;
 }

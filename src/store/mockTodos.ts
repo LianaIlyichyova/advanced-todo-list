@@ -1,6 +1,6 @@
 import type { Todo } from "@shared-types/todo";
 
-export const todos: Todo[] = [
+const todos: Todo[] = [
   {
     id: "1",
     title: "UI/UX Design in the age of AI",
@@ -8,14 +8,17 @@ export const todos: Todo[] = [
     status: "inProgress",
     category: "work",
     priority: "medium",
+    order: 1,
   },
   {
     id: "2",
-    title: "Responsive Website Design for 23 clients",
+    title:
+      "Responsive Website Design for 23 clients Responsive Website Design for 23 clients",
     description: "Lorem ipsum dolor sit amet...",
     status: "inProgress",
     category: "lessons",
     priority: "high",
+    order: 2,
   },
   {
     id: "3",
@@ -25,6 +28,7 @@ export const todos: Todo[] = [
     status: "todo",
     category: "work",
     priority: "low",
+    order: 3,
   },
   {
     id: "4",
@@ -34,5 +38,8 @@ export const todos: Todo[] = [
     status: "completed",
     category: "hobby",
     priority: "medium",
+    order: 4,
   },
 ];
+
+export default todos;

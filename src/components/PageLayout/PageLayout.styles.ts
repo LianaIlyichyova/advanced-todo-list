@@ -12,6 +12,7 @@ const StyledLayout = styled(Layout)`
 `;
 
 const StyledHeader = styled(Layout.Header)`
+  padding-right: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

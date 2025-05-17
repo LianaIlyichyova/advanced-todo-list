@@ -3,7 +3,7 @@ import { ConfigProvider, App as AntdApp, Spin } from "antd";
 import { Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 
-import merge from "lodash.merge";
+import { merge } from "lodash";
 import type { RootState } from "./store";
 
 import ThemeToggle from "@components/ThemeToggle";
@@ -40,7 +40,10 @@ function App() {
           <Suspense fallback={<Spin fullscreen />}>
             <Routes>
               <Route path={RouterPaths.Home} element={<HomePage />} />
-              <Route path={RouterPaths.DetailView} element={<DetailView />} />
+              <Route
+                path={`${RouterPaths.DetailView}/:id`}
+                element={<DetailView />}
+              />
             </Routes>
           </Suspense>
           <ThemeToggle />

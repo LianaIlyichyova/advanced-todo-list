@@ -6,6 +6,7 @@ const StyledFilters = styled.div`
   display: flex;
   flex-direction: row;
   gap: ${spacings.l}px;
+  align-items: center;
 `;
 
 const StyledSelect = styled(Select)`

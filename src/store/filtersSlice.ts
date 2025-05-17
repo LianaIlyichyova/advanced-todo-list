@@ -1,20 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+
+interface FiltersState {
+  priority: string[];
+  category: string[];
+}
+
+const initialState: FiltersState = {
+  priority: [],
+  category: [],
+};
 
 const filterSlice = createSlice({
   name: "filter",
-  initialState: {
-    priority: [],
-    category: [],
-  },
+  initialState,
   reducers: {
-    setPriority(state, action) {
-      state.priority = action.payload satisfies string[];
+    setPriority(state, action: PayloadAction<string[]>) {
+      state.priority = action.payload;
     },
-    setCategory(state, action) {
-      state.category = action.payload satisfies string[];
+    setCategory(state, action: PayloadAction<string[]>) {
+      state.category = action.payload;
+    },
+    resetFilters() {
+      return initialState;
     },
   },
 });
 
 export default filterSlice.reducer;
-export const { setCategory, setPriority } = filterSlice.actions;
+export const { setCategory, setPriority, resetFilters } = filterSlice.actions;

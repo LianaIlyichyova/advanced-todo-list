@@ -5,7 +5,7 @@ interface IconWrapperProps extends React.HTMLAttributes<HTMLElement> {
   color?: string;
   size?: number;
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 const IconWrapper = ({

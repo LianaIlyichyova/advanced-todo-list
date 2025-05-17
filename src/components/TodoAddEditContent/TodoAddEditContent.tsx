@@ -3,7 +3,7 @@ import { Priority, Category, Status } from "@assets/filters";
 import Select from "@components/Select";
 import type { Todo } from "@shared-types/todo";
 import { getSelectOptions } from "@utils/getSelectOptions";
-import { uniqueId } from "lodash";
+import { v4 as uuidv4 } from "uuid";
 
 interface TodoAddEditContentProps {
   initialValues?: Partial<Todo>;
@@ -18,7 +18,8 @@ const TodoAddEditContent = ({
   onSubmit,
   form,
 }: TodoAddEditContentProps) => {
-  const id = uniqueId();
+  const id = uuidv4();
+
   return (
     <Form
       form={form}
@@ -37,22 +38,11 @@ const TodoAddEditContent = ({
         name="title"
         rules={[{ required: true, message: "Please enter a title" }]}
       >
-        <Input placeholder="Enter task title" />
+        <Input placeholder="Enter todo title" />
       </Form.Item>
 
       <Form.Item label="Description" name="description">
-        <TextArea rows={4} placeholder="Enter task description" />
-      </Form.Item>
-
-      <Form.Item
-        label="Status"
-        name="status"
-        rules={[{ required: true, message: "Please select a status" }]}
-      >
-        <Select
-          placeholder="Select status"
-          options={getSelectOptions(Object.keys(Status))}
-        />
+        <TextArea rows={4} placeholder="Enter todo description" />
       </Form.Item>
 
       <Form.Item
@@ -74,6 +64,16 @@ const TodoAddEditContent = ({
         <Select
           placeholder="Select category"
           options={getSelectOptions(Object.keys(Category))}
+        />
+      </Form.Item>
+      <Form.Item
+        label="Status"
+        name="status"
+        rules={[{ required: true, message: "Please select a status" }]}
+      >
+        <Select
+          placeholder="Select status"
+          options={getSelectOptions(Object.keys(Status))}
         />
       </Form.Item>
     </Form>
