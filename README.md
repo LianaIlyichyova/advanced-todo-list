@@ -1,54 +1,49 @@
-# React + TypeScript + Vite
+# Advanced Todo Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An advanced Kanban-style Todo Board built with **React 19**, **Redux Toolkit**, **Ant Design**, and **dnd-kit**. It supports full drag-and-drop, filters, CRUD operations, persistent local storage, light/dark theme toggling, styled by Antd design tokens, responsive UI.
 
-Currently, two official plugins are available:
+![Light Mode Screenshot](./screenshots/light-mode.png)
+![Dark Mode Screenshot](./screenshots/dark-mode.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Light & Dark Mode Toggle**
+- **Drag & Drop Functionality**
+- Reorder todos and move them between columns using `@dnd-kit`
+- **CRUD Operations**
+  - Create, Read (Detail View), Update, and Delete Todos
+- **Filtering**
+- Filter tasks by priority and category
+- **LocalStorage Persistence**
+- All todos are saved locally — no backend required
+- **Detailed View**
+- Create and edit full task details in a modal
+- **Modern Stack**
+  - Built with Vite, React 19, and Redux Toolkit for high performance
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React 19**
+- **Redux Toolkit**
+- **Ant Design 5**
+- **React Router 7.6.0**
+- **dnd-kit** (`core`, `sortable`, `utilities`, `modifiers`)
+- **styled-components**
+- **TypeScript**
+- **Vite** (for blazing-fast dev environment)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+---
+
+## Installation
+
+```bash
+git clone https://github.com/LianaIlyichyova/advanced-todo-list
+cd todo-list
+npm install
+
+npm run dev
 ```
