@@ -67,6 +67,7 @@ const StyledCountCircle = styled.div`
 
 const StyledTitleText = styled(Typography)`
   flex: 1;
+  text-wrap: nowrap;
 `;
 
 export {
