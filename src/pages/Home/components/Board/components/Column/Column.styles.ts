@@ -50,7 +50,7 @@ const StyledHeaderContent = styled.div<{ $color: string }>`
   cursor: pointer;
   user-select: none;
 
-  width: 100%;
+  min-width: 300px;
   box-sizing: border-box;
 `;
 
