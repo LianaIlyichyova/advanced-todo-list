@@ -4,11 +4,16 @@ import { Select } from "antd";
 
 const StyledSelect = styled(Select)`
   max-width: 300px;
-
   .ant-select-arrow,
-  .ant-select-selection-item-remove,
+  .ant-select-multiple
+    .ant-select-selection-overflow
+    .ant-select-selection-item-remove,
   .ant-select-item-option-state {
-    color: inherit !important;
+    color: inherit;
+  }
+
+  &:hover .ant-select-clear {
+    color: inherit;
   }
 `;
 

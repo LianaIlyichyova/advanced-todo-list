@@ -35,7 +35,6 @@ const Typography = ({
   fontSize = "sm",
   fontWeight = "400",
   color = "primary",
-  textTransform = "none",
   textDecoration = "none",
 }: TypographyProps) => {
   const { token } = theme.useToken();
@@ -51,7 +50,6 @@ const Typography = ({
       className={className}
       $fontSize={fontSize}
       $fontWeight={fontWeight}
-      $textTransform={textTransform}
       $textDecoration={textDecoration}
       $colorValue={colorValue}
     >

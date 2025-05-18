@@ -57,8 +57,8 @@ const StyledHeaderContent = styled.div<{ $color: string }>`
 const StyledCountCircle = styled.div`
   background-color: white;
   color: black;
-  border-radius: 50%;
-  padding: ${spacings.xxs}px ${spacings.s}px;
+  border-radius: 999px;
+  padding: 4px 10px;
   font-size: ${fontSizes.sm};
   font-weight: 600;
   min-width: 32px;

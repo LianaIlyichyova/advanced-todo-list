@@ -11,7 +11,9 @@ export const categoryColors = {
 };
 
 export const statusColors = {
+  backlog: "#8E44AD",
   todo: "#6A5ACD",
   inProgress: "#FFA500",
+  testing: "#1890FF",
   completed: "#32CD32",
 };

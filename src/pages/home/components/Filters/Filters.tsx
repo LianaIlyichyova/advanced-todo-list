@@ -5,12 +5,10 @@ import type { AppDispatch } from "@store/index";
 import { setCategory, setPriority, resetFilters } from "@store/filtersSlice";
 
 import { Form } from "antd";
-import { AppstoreOutlined, NodeCollapseOutlined } from "@ant-design/icons";
 
 import { getSelectOptions } from "@helpers/getSelectOptions";
 
 import Typography from "@components/Typography";
-import IconWrapper from "@components/IconWrapper";
 import { StyledFilters, StyledSelect } from "./Filters.styles";
 
 import { Priority, Category } from "@assets/filters";
@@ -38,13 +36,7 @@ const Filters = () => {
   return (
     <Form>
       <StyledFilters>
-        <Form.Item
-          label={
-            <IconWrapper>
-              <AppstoreOutlined />
-            </IconWrapper>
-          }
-        >
+        <Form.Item>
           <StyledSelect
             options={priorityFilterOptions}
             onChange={handlePriorityChange}
@@ -56,13 +48,7 @@ const Filters = () => {
           />
         </Form.Item>
 
-        <Form.Item
-          label={
-            <IconWrapper>
-              <NodeCollapseOutlined rotate={90} />
-            </IconWrapper>
-          }
-        >
+        <Form.Item>
           <StyledSelect
             options={categoryFilterOptions}
             onChange={handleCategoryChange}

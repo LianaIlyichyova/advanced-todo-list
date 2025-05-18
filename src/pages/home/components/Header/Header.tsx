@@ -26,11 +26,11 @@ const Header = () => {
   return (
     <>
       <Typography color="heading" variant="h1" fontSize="xl" fontWeight="500">
-        Todo Board
+        Tasks Board
       </Typography>
 
       <Button onClick={() => setIsOpenModal(true)} type="primary">
-        Add Todo
+        Add
         <PlusOutlined />
       </Button>
 

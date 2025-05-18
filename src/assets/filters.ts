@@ -15,8 +15,10 @@ const Category = {
 export type CategoryType = keyof typeof Category;
 
 const Status = {
+  backlog: "backlog",
   todo: "todo",
   inProgress: "inProgress",
+  testing: "testing",
   completed: "Completed",
 } as const;
 
