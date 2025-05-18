@@ -75,7 +75,7 @@ const Card: React.FC<Props> = ({ todo, isOver = false }) => {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: todo.id });
+  } = useSortable({ id: todo.id, disabled: isOpenModal });
 
   return (
     <StyledCardWrapper
