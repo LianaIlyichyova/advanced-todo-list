@@ -5,15 +5,17 @@ interface IconWrapperProps extends React.HTMLAttributes<HTMLElement> {
   color?: string;
   size?: number;
   children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-const IconWrapper: React.FC<IconWrapperProps> = ({
+const IconWrapper = ({
   color,
   size = 24,
   children,
-}) => {
+  onClick,
+}: IconWrapperProps) => {
   return (
-    <StyledIconWrapper color={color} size={size}>
+    <StyledIconWrapper color={color} size={size} onClick={onClick}>
       {children}
     </StyledIconWrapper>
   );

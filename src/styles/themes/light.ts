@@ -1,19 +1,17 @@
-import spacingConfigs from "../spacingConfigs";
 import { colors } from "../constants";
 import { type ThemeConfig } from "antd";
 
 const light: ThemeConfig = {
   token: {
-    fontFamily: "Open Sans, Arial, sans-serif",
     colorText: colors.colorTextPrimary,
     colorTextHeading: colors.colorTextTertiary,
     colorIcon: colors.colorTextTertiary,
     colorIconHover: colors.colorTextSecondary,
     fontSizeIcon: 24,
     colorBgBase: colors.white,
+    colorPrimaryBg: colors.white,
   },
   components: {
-    ...spacingConfigs,
     Form: {
       labelColor: colors.colorTextTertiary,
     },
@@ -25,8 +23,18 @@ const light: ThemeConfig = {
       headerBg: "transparent",
     },
     Select: {
-      fontSizeIcon: 16,
-      // colorBgContainer: "red",
+      controlItemBgActive: colors.colorBgContainer,
+      controlItemBgHover: colors.colorBgContainer,
+      colorBorder: colors.colorBgContainer,
+      activeBorderColor: colors.colorBgSecondary,
+    },
+    Button: {
+      colorPrimary: colors.colorBgButton,
+      colorPrimaryHover: colors.colorBgButtonHover,
+      colorTextLightSolid: colors.white,
+      colorBorder: colors.colorBgButton,
+      colorText: colors.colorTextTertiary,
+      colorPrimaryActive: colors.colorLabelDark,
     },
   },
 };
