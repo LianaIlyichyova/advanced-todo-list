@@ -1,20 +1,24 @@
-import {
-  ColumnWrapper,
-  ColumnHeader,
-  HeaderContent,
-  CountCircle,
-  TitleText,
-} from "./Board.styles";
-import type { Todo } from "@shared-types/todo";
-import TodoCard from "./TodoCard";
+import { useSelector } from "react-redux";
+import type { RootState } from "@store/index";
+
+import { useDroppable } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { useDroppable } from "@dnd-kit/core";
 
-import { useSelector } from "react-redux";
-import type { RootState } from "@store/index";
+import type { Todo } from "@shared-types/todo";
+
+import Card from "../Card";
+
+import {
+  StyledColumnWrapper,
+  StyledColumnHeader,
+  StyledHeaderContent,
+  StyledCountCircle,
+  StyledTitleText,
+  StyledColumnContent,
+} from "./Column.styles";
 
 interface Props {
   title: string;
@@ -42,26 +46,27 @@ const Column: React.FC<Props> = ({ title, color, todos, columnId, overId }) => {
   const sortedTodos = [...filteredTodos].sort((a, b) => a.order - b.order);
 
   return (
-    <ColumnWrapper ref={setNodeRef}>
-      <ColumnHeader>
-        <HeaderContent $color={color}>
-          <CountCircle>{sortedTodos.length}</CountCircle>
-          <TitleText fontSize="md" fontWeight="600" color={"extend"}>
+    <StyledColumnWrapper ref={setNodeRef}>
+      <StyledColumnHeader>
+        <StyledHeaderContent $color={color}>
+          <StyledCountCircle>{sortedTodos.length}</StyledCountCircle>
+          <StyledTitleText fontSize="md" fontWeight="600" color={"extend"}>
             {title}
-          </TitleText>
-        </HeaderContent>
-      </ColumnHeader>
-
+          </StyledTitleText>
+        </StyledHeaderContent>
+      </StyledColumnHeader>
       <SortableContext
         items={sortedTodos.map((t) => t.id)}
         strategy={verticalListSortingStrategy}
       >
-        {sortedTodos.map((todo) => (
-          <TodoCard key={todo.id} todo={todo} isOver={todo.id === overId} />
-        ))}
+        <StyledColumnContent>
+          {sortedTodos.map((todo) => (
+            <Card key={todo.id} todo={todo} isOver={todo.id === overId} />
+          ))}
+        </StyledColumnContent>
         {sortedTodos.length === 0 && <div></div>}
       </SortableContext>
-    </ColumnWrapper>
+    </StyledColumnWrapper>
   );
 };
 

@@ -9,3 +9,9 @@ export const categoryColors = {
   lessons: "#9254DE",
   hobby: "#13C2C2",
 };
+
+export const statusColors = {
+  todo: "#6A5ACD",
+  inProgress: "#FFA500",
+  completed: "#32CD32",
+};

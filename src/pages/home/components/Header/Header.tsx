@@ -1,12 +1,16 @@
-import Typography from "@components/Typography";
-import { PlusOutlined } from "@ant-design/icons";
 import { useState } from "react";
-import { Modal, Form, Button } from "antd";
-import TodoAddEditContent from "@components/TodoAddEditContent";
-import type { Todo } from "@shared-types/todo";
+
 import { useDispatch } from "react-redux";
 import { addTodo } from "@store/todosSlice";
 import type { AppDispatch } from "@store/index";
+
+import { Modal, Form, Button } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+
+import Typography from "@components/Typography";
+import TodoAddEditContent from "@components/TodoAddEditContent";
+
+import type { Todo } from "@shared-types/todo";
 
 const Header = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);

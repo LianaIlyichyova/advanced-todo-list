@@ -1,8 +1,13 @@
 import React from "react";
-import StyledTypography from "./Typography.styles";
+
+// theme from Ant Design to get colors
 import { theme } from "antd";
+
 import { type FontSize } from "@styles/constants";
 
+import StyledTypography from "./Typography.styles";
+
+// This object connects color names to Ant Design theme colors
 const colorVariantToTokenMap = {
   primary: "colorText",
   secondary: "colorTextSecondary",
@@ -10,6 +15,7 @@ const colorVariantToTokenMap = {
   error: "colorError",
 } as const;
 
+// This type is for color names we can use, plus "extend" for custom colors
 type ColorVariant = keyof typeof colorVariantToTokenMap | "extend";
 
 export interface TypographyProps extends React.PropsWithChildren {
@@ -22,7 +28,7 @@ export interface TypographyProps extends React.PropsWithChildren {
   textDecoration?: React.CSSProperties["textDecoration"];
 }
 
-const Typography: React.FC<TypographyProps> = ({
+const Typography = ({
   children,
   className,
   variant = "p",
@@ -31,7 +37,7 @@ const Typography: React.FC<TypographyProps> = ({
   color = "primary",
   textTransform = "none",
   textDecoration = "none",
-}) => {
+}: TypographyProps) => {
   const { token } = theme.useToken();
 
   const colorValue =

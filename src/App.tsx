@@ -7,7 +7,7 @@ import { merge } from "lodash";
 import type { RootState } from "./store";
 
 import ThemeToggle from "@components/ThemeToggle";
-import { RouterPaths } from "@utils/routes";
+import { RouterPaths } from "@assets/routes";
 
 import CSSResetStyles from "@styles/css-reset";
 import type { ThemeType } from "./styles/constants";

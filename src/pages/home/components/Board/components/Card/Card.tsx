@@ -1,29 +1,34 @@
-import {
-  CardWrapper,
-  CardTitle,
-  CardFooter,
-  Stats,
-  PriorityTag,
-  CategoryTag,
-} from "./Board.styles";
-import type { Todo } from "@shared-types/todo";
-import { categoryColors, priorityColors } from "@assets/colors";
-import { capitalize } from "lodash";
-import IconWrapper from "@components/IconWrapper";
-import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
-import { Flex, Modal, Form, App } from "antd";
 import { useState } from "react";
-import { spacings } from "@styles/constants";
-import TodoAddEditContent from "@components/TodoAddEditContent";
-
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { useNavigate } from "react-router";
-import { RouterPaths } from "@utils/routes";
 
 import { useDispatch } from "react-redux";
 import { updateTodo, deleteTodo } from "@store/todosSlice";
 import type { AppDispatch } from "@store/index";
+
+import { useNavigate } from "react-router";
+
+import { Flex, Modal, Form, App } from "antd";
+import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
+
+import { capitalize } from "lodash";
+import { CSS } from "@dnd-kit/utilities";
+import { useSortable } from "@dnd-kit/sortable";
+import { RouterPaths } from "@assets/routes";
+import { categoryColors, priorityColors } from "@assets/colors";
+import { spacings } from "@styles/constants";
+
+import type { Todo } from "@shared-types/todo";
+
+import IconWrapper from "@components/IconWrapper";
+import TodoAddEditContent from "@components/TodoAddEditContent";
+
+import {
+  StyledCardWrapper,
+  StyledCardTitle,
+  StyledCardFooter,
+  StyledStats,
+  StyledPriorityTag,
+  StyledCategoryTag,
+} from "./Card.styles";
 
 interface Props {
   todo: Todo;
@@ -31,7 +36,7 @@ interface Props {
   isOver?: boolean;
 }
 
-const TodoCard: React.FC<Props> = ({ todo, isOver = false }) => {
+const Card: React.FC<Props> = ({ todo, isOver = false }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [form] = Form.useForm();
   const { modal, message } = App.useApp();
@@ -53,7 +58,6 @@ const TodoCard: React.FC<Props> = ({ todo, isOver = false }) => {
   const handleDelete = () => {
     modal.confirm({
       title: "Are you sure you want to delete this todo?",
-      content: "This action cannot be undone.",
       okText: "Delete",
       okType: "danger",
       cancelText: "Cancel",
@@ -74,7 +78,7 @@ const TodoCard: React.FC<Props> = ({ todo, isOver = false }) => {
   } = useSortable({ id: todo.id });
 
   return (
-    <CardWrapper
+    <StyledCardWrapper
       ref={setNodeRef}
       style={{
         transform: CSS.Transform.toString(transform),
@@ -88,9 +92,9 @@ const TodoCard: React.FC<Props> = ({ todo, isOver = false }) => {
       isDragging={isDragging}
     >
       <Flex justify="space-between">
-        <PriorityTag $color={priorityColor}>
+        <StyledPriorityTag $color={priorityColor}>
           {todo.priority?.toUpperCase()}
-        </PriorityTag>
+        </StyledPriorityTag>
 
         <Flex gap={spacings.s}>
           <IconWrapper
@@ -117,15 +121,15 @@ const TodoCard: React.FC<Props> = ({ todo, isOver = false }) => {
         </Flex>
       </Flex>
 
-      <CardTitle>{todo.title}</CardTitle>
+      <StyledCardTitle>{todo.title}</StyledCardTitle>
 
-      <CardFooter>
-        <Stats>
-          <CategoryTag $color={categoryColor}>
+      <StyledCardFooter>
+        <StyledStats>
+          <StyledCategoryTag $color={categoryColor}>
             {capitalize(todo.category)}
-          </CategoryTag>
-        </Stats>
-      </CardFooter>
+          </StyledCategoryTag>
+        </StyledStats>
+      </StyledCardFooter>
 
       <Modal
         title="Edit Task"
@@ -143,8 +147,8 @@ const TodoCard: React.FC<Props> = ({ todo, isOver = false }) => {
           onSubmit={onSubmit}
         />
       </Modal>
-    </CardWrapper>
+    </StyledCardWrapper>
   );
 };
 
-export default TodoCard;
+export default Card;

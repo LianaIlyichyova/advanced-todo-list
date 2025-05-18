@@ -56,6 +56,9 @@ const dark: ThemeConfig = {
       hoverBorderColor: colors.white,
       colorBgContainer: colors.colorBgTertiary,
     },
+    Card: {
+      colorBgContainer: colors.colorBgSecondary,
+    },
   },
 };
 

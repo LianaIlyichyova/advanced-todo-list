@@ -27,6 +27,4 @@ const StyledContent = styled(Layout.Content)`
   gap: ${spacings.l}px;
 `;
 
-const StyledSider = styled(Layout.Sider)``;
-
-export { StyledContent, StyledLayout, StyledHeader, StyledSider };
+export { StyledContent, StyledLayout, StyledHeader };
