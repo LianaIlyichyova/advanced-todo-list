@@ -1,8 +1,11 @@
 import { spacings } from "@styles/constants";
 import styled from "styled-components";
-import { Flex } from "antd";
+import { Card, Flex } from "antd";
 
-const StyledDetailViewContent = styled.div``;
+const StyledCard = styled(Card)`
+  height: 85vh;
+  overflow: auto;
+`;
 
 const StyledDetail = styled.div`
   display: flex;
@@ -35,7 +38,7 @@ const StyledDivider = styled.div`
 `;
 
 export {
-  StyledDetailViewContent,
+  StyledCard,
   StyledDetail,
   StyledTitle,
   StyledTag,

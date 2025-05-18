@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import type { RootState } from "@store/index";
 
-import { Row, Col, Card, Flex } from "antd";
+import { Row, Col, Flex } from "antd";
 
 import PageLayout from "@components/PageLayout";
 import { Header } from "./components";
@@ -14,6 +14,7 @@ import {
   StyledTag,
   StyledTitle,
   StyledDivider,
+  StyledCard,
 } from "./DetailView.styles";
 import { spacings } from "@styles/constants";
 
@@ -33,7 +34,7 @@ const DetailView = () => {
     <PageLayout
       header={<Header />}
       content={
-        <Card>
+        <StyledCard>
           <Flex vertical gap={spacings.xl}>
             <StyledTitle>
               <Typography variant="h2" fontSize="md" fontWeight="500">
@@ -86,7 +87,7 @@ const DetailView = () => {
               </Col>
             </Row>
           </Flex>
-        </Card>
+        </StyledCard>
       }
     />
   );
