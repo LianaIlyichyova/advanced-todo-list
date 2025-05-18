@@ -11,17 +11,17 @@ An advanced Kanban-style Todo Board built with **React 19**, **Redux Toolkit**, 
 
 - **Light & Dark Mode Toggle**
 - **Drag & Drop Functionality**
-- Reorder todos and move them between columns using `@dnd-kit`
+- Reorder todos and move them between columns and lines using `@dnd-kit`
 - **CRUD Operations**
   - Create, Read (Detail View), Update, and Delete Todos
 - **Filtering**
 - Filter tasks by priority and category
 - **LocalStorage Persistence**
-- All todos are saved locally — no backend required
+- All todos are saved locally(in localStorage, without backend responses)
 - **Detailed View**
-- Create and edit full task details in a modal
-- **Modern Stack**
-  - Built with Vite, React 19, and Redux Toolkit for high performance
+- Create and edit functionality implemented with modal
+- **Stack**
+  - Built with Vite, React 19, and Redux Toolkit
 
 ---
 
@@ -34,7 +34,7 @@ An advanced Kanban-style Todo Board built with **React 19**, **Redux Toolkit**, 
 - **dnd-kit** (`core`, `sortable`, `utilities`, `modifiers`)
 - **styled-components**
 - **TypeScript**
-- **Vite** (for blazing-fast dev environment)
+- **Vite**
 
 ---
 
@@ -42,8 +42,13 @@ An advanced Kanban-style Todo Board built with **React 19**, **Redux Toolkit**, 
 
 ```bash
 git clone https://github.com/LianaIlyichyova/advanced-todo-list
-cd todo-list
+cd ['your project directory']
 npm install
 
 npm run dev
+
+//build
+
+npm run build
+
 ```
