@@ -12,6 +12,9 @@ const StyledCardWrapper = styled.div<{ isDragging?: boolean }>`
   margin: 0 auto ${spacings.s}px auto;
   opacity: ${({ isDragging }) => (isDragging ? 0.5 : 1)};
   transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: ${spacings.xs}px;
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -27,7 +30,6 @@ const StyledCardTitle = styled(Typography)`
 const StyledCardFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
 `;
 
 const StyledStats = styled.div`
@@ -47,7 +49,6 @@ const StyledPriorityTag = styled.span<{ $color: string }>`
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
-  margin-bottom: 8px;
   width: fit-content;
 `;
 

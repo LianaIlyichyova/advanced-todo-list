@@ -91,14 +91,14 @@ const Card: React.FC<Props> = ({ todo, isOver = false }) => {
       {...listeners}
       isDragging={isDragging}
     >
-      <Flex justify="space-between">
+      <Flex justify="space-between" wrap align="center" gap={16}>
         <StyledPriorityTag $color={priorityColor}>
           {todo.priority?.toUpperCase()}
         </StyledPriorityTag>
 
-        <Flex gap={spacings.s}>
+        <Flex gap={spacings.xs}>
           <IconWrapper
-            size={20}
+            size={18}
             onClick={() => navigate(`${RouterPaths.DetailView}/${todo.id}`)}
             data-no-dnd
           >
