@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { Card, Flex } from "antd";
 
 const StyledCard = styled(Card)`
-  height: 85vh;
-  overflow: auto;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledDetail = styled.div`
@@ -37,6 +38,12 @@ const StyledDivider = styled.div`
   }
 `;
 
+const StyledDescription = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(85vh - 150px); // subtract header + paddings/margins
+`;
+
 export {
   StyledCard,
   StyledDetail,
@@ -44,4 +51,5 @@ export {
   StyledTag,
   StyledDivider,
   StyledDetails,
+  StyledDescription,
 };

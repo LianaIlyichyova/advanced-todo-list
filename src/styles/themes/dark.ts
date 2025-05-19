@@ -1,7 +1,8 @@
+import type { DefaultTheme } from "styled-components";
 import { colors } from "../constants";
 import { type ThemeConfig } from "antd";
 
-const dark: ThemeConfig = {
+const dark = {
   token: {
     colorText: colors.white,
     colorTextHeading: colors.white,
@@ -11,6 +12,9 @@ const dark: ThemeConfig = {
     colorBgBase: colors.colorBgPrimary,
     colorBgContainer: colors.colorTextSecondary,
     colorPrimaryBg: colors.colorBgSecondary,
+    scrollbarThumb: "rgba(255, 255, 255, 0.2)", // light gray
+    scrollbarThumbHover: "rgba(255, 255, 255, 0.3)",
+    colorTextSecondary: colors.colorLabelDark,
   },
   components: {
     Form: {
@@ -27,13 +31,13 @@ const dark: ThemeConfig = {
     Select: {
       colorBgElevated: colors.colorBgTertiary,
       colorText: colors.white,
-      colorTextPlaceholder: colors.white,
       controlItemBgActive: colors.colorBgSecondary,
       controlItemBgHover: colors.colorBgSecondary,
       colorBorder: colors.colorTextSecondary,
       activeBorderColor: colors.white,
       selectorBg: colors.colorBgTertiary,
       hoverBorderColor: colors.white,
+      colorTextPlaceholder: colors.colorLabelDark,
     },
     Divider: {
       colorSplit: colors.colorBgTertiary,
@@ -45,6 +49,7 @@ const dark: ThemeConfig = {
       colorPrimaryActive: colors.colorBgButton,
       colorBorder: colors.colorBgButton,
       colorText: colors.white,
+      colorBgContainer: colors.colorBgTertiary,
     },
     Input: {
       colorBgBase: colors.white,
@@ -60,6 +65,6 @@ const dark: ThemeConfig = {
       colorBgContainer: colors.colorBgSecondary,
     },
   },
-};
+} as ThemeConfig & DefaultTheme;
 
 export default dark;

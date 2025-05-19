@@ -8,7 +8,7 @@ import { Modal, Form, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 
 import Typography from "@components/Typography";
-import TodoAddEditContent from "@components/TodoAddEditContent";
+import TodoAddEditContent from "@components/AddEditContent";
 
 import type { Todo } from "@shared-types/todo";
 
@@ -41,7 +41,7 @@ const Header = () => {
           form.resetFields();
         }}
         okText="Save"
-        title="Add Todo"
+        title="Add Task"
         onOk={() => form.submit()}
       >
         <TodoAddEditContent onSubmit={onSubmit} form={form} />

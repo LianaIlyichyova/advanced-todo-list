@@ -1,7 +1,8 @@
+import type { DefaultTheme } from "styled-components";
 import { colors } from "../constants";
 import { type ThemeConfig } from "antd";
 
-const light: ThemeConfig = {
+const light = {
   token: {
     colorText: colors.colorTextPrimary,
     colorTextHeading: colors.colorTextTertiary,
@@ -10,6 +11,9 @@ const light: ThemeConfig = {
     fontSizeIcon: 24,
     colorBgBase: colors.white,
     colorPrimaryBg: colors.white,
+    scrollbarThumb: "rgba(0, 0, 0, 0.2)",
+    scrollbarThumbHover: "rgba(0, 0, 0, 0.3)",
+    colorTextSecondary: colors.colorTextTertiary,
   },
   components: {
     Form: {
@@ -27,6 +31,7 @@ const light: ThemeConfig = {
       controlItemBgHover: colors.colorBgContainer,
       colorBorder: colors.colorBgContainer,
       activeBorderColor: colors.colorBgSecondary,
+      colorTextPlaceholder: colors.colorLabelDark,
     },
     Button: {
       colorPrimary: colors.colorBgButton,
@@ -37,5 +42,6 @@ const light: ThemeConfig = {
       colorPrimaryActive: colors.colorLabelDark,
     },
   },
-};
+} as ThemeConfig & DefaultTheme;
+
 export default light;

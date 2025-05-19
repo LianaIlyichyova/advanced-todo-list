@@ -31,8 +31,6 @@ const GlobalCSSReset = createGlobalStyle`
   }
 
   /* === Scrollbar Styles === */
-
-  /* Chrome, Safari, Edge (WebKit) */
   *::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -42,22 +40,24 @@ const GlobalCSSReset = createGlobalStyle`
     background: transparent;
   }
 
-  *::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2); /* gray-ish thumb */
-    border-radius: 8px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: ${({ theme }) =>
+    theme.token.scrollbarThumb || "rgba(0, 0, 0, 0.2)"};
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
 
-  *::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+*::-webkit-scrollbar-thumb:hover {
+  background-color: ${({ theme }) =>
+    theme.token.scrollbarThumbHover || "rgba(0, 0, 0, 0.3)"};
+}
 
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) =>
+    `${theme.token.scrollbarThumb || "rgba(0,0,0,0.2)"} transparent`};
+}
 
   html {
     scroll-behavior: smooth;

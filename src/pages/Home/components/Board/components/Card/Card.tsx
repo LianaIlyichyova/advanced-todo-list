@@ -19,7 +19,7 @@ import { spacings } from "@styles/constants";
 import type { Todo } from "@shared-types/todo";
 
 import IconWrapper from "@components/IconWrapper";
-import TodoAddEditContent from "@components/TodoAddEditContent";
+import TodoAddEditContent from "@components/AddEditContent";
 
 import {
   StyledCardWrapper,
@@ -121,7 +121,7 @@ const Card: React.FC<Props> = ({ todo, isOver = false }) => {
         </Flex>
       </Flex>
 
-      <StyledCardTitle>{todo.title}</StyledCardTitle>
+      <StyledCardTitle color={"secondary"}>{todo.title}</StyledCardTitle>
 
       <StyledCardFooter>
         <StyledStats>

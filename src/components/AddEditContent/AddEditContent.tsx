@@ -10,7 +10,7 @@ import { getSelectOptions } from "@helpers/getSelectOptions";
 
 import { v4 as uuidv4 } from "uuid";
 
-interface TodoAddEditContentProps {
+interface AddEditContentProps {
   initialValues?: Partial<Todo>;
   onSubmit: (values: Todo) => void;
   form: FormInstance;
@@ -18,11 +18,11 @@ interface TodoAddEditContentProps {
 
 const { TextArea } = Input;
 
-const TodoAddEditContent = ({
+const AddEditContent = ({
   initialValues,
   onSubmit,
   form,
-}: TodoAddEditContentProps) => {
+}: AddEditContentProps) => {
   const id = uuidv4();
 
   return (
@@ -43,11 +43,11 @@ const TodoAddEditContent = ({
         name="title"
         rules={[{ required: true, message: "Please enter a title" }]}
       >
-        <Input placeholder="Enter todo title" />
+        <Input placeholder="Enter title" />
       </Form.Item>
 
       <Form.Item label="Description" name="description">
-        <TextArea rows={4} placeholder="Enter todo description" />
+        <TextArea rows={4} placeholder="Enter description" autoSize />
       </Form.Item>
 
       <Form.Item
@@ -85,4 +85,4 @@ const TodoAddEditContent = ({
   );
 };
 
-export default TodoAddEditContent;
+export default AddEditContent;
