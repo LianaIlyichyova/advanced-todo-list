@@ -1,6 +1,6 @@
-# Advanced Todo Board
+# Advanced Tasks Board
 
-An advanced Kanban-style Todo Board built with **React 19**, **Redux Toolkit**, **Ant Design**, and **dnd-kit**. It supports full drag-and-drop, filters, CRUD operations, persistent local storage, light/dark theme toggling, styled by Antd design tokens, responsive UI.
+An advanced Kanban-style Tasks/Todo Board built with **React 19**, **Redux Toolkit**, **Ant Design**, and **dnd-kit**. It supports full drag-and-drop, filters, CRUD operations, persistent local storage, light/dark theme toggling, styled by Antd design tokens, responsive UI.
 
 ![Light Mode Screenshot](./screenshots/light-mode.png)
 ![Dark Mode Screenshot](./screenshots/dark-mode.png)
