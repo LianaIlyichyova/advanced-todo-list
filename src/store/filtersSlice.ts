@@ -20,8 +20,9 @@ const filterSlice = createSlice({
     setCategory(state, action: PayloadAction<string[]>) {
       state.category = action.payload;
     },
-    resetFilters() {
-      return initialState;
+    resetFilters(state) {
+      state.priority = initialState.priority;
+      state.category = initialState.category;
     },
   },
 });

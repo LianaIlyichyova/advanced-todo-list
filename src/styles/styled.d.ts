@@ -8,6 +8,8 @@ declare module "styled-components" {
       colorIcon: string;
       colorIconHover: string;
       colorTextPrimary: string;
+      scrollbarThumb: string;
+      scrollbarThumbHover: string;
     };
   }
 }

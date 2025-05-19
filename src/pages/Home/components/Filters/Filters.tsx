@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import type { AppDispatch } from "@store/index";
 import { setCategory, setPriority, resetFilters } from "@store/filtersSlice";
 
-import { Form } from "antd";
+import { Form, Button } from "antd";
 
 import { getSelectOptions } from "@helpers/getSelectOptions";
 
@@ -12,6 +12,7 @@ import Typography from "@components/Typography";
 import { StyledFilters, StyledSelect } from "./Filters.styles";
 
 import { Priority, Category } from "@assets/filters";
+import { useForm } from "antd/es/form/Form";
 
 const priorityFilterOptions = getSelectOptions(Object.keys(Priority));
 const categoryFilterOptions = getSelectOptions(Object.keys(Category));
@@ -19,7 +20,9 @@ const categoryFilterOptions = getSelectOptions(Object.keys(Category));
 const Filters = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  // 🧠 State for open/close dropdowns
+  const [form] = useForm();
+
+  //  State for open/close dropdowns
   const [priorityOpen, setPriorityOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
 
@@ -34,9 +37,9 @@ const Filters = () => {
   };
 
   return (
-    <Form>
+    <Form form={form}>
       <StyledFilters>
-        <Form.Item>
+        <Form.Item name="priority">
           <StyledSelect
             options={priorityFilterOptions}
             onChange={handlePriorityChange}
@@ -48,7 +51,7 @@ const Filters = () => {
           />
         </Form.Item>
 
-        <Form.Item>
+        <Form.Item name="category">
           <StyledSelect
             options={categoryFilterOptions}
             onChange={handleCategoryChange}
@@ -61,9 +64,15 @@ const Filters = () => {
         </Form.Item>
 
         <Form.Item>
-          <span onClick={() => dispatch(resetFilters())}>
-            <Typography textDecoration="underline">Reset Filters</Typography>
-          </span>
+          <Button
+            onClick={() => {
+              form.resetFields();
+              dispatch(resetFilters());
+            }}
+            type="default"
+          >
+            <Typography>Reset Filters</Typography>
+          </Button>
         </Form.Item>
       </StyledFilters>
     </Form>
