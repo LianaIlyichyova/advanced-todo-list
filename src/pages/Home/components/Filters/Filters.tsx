@@ -14,8 +14,8 @@ import { StyledFilters, StyledSelect } from "./Filters.styles";
 import { Priority, Category } from "@assets/filters";
 import { useForm } from "antd/es/form/Form";
 
-const priorityFilterOptions = getSelectOptions(Object.keys(Priority));
-const categoryFilterOptions = getSelectOptions(Object.keys(Category));
+const priorityFilterOptions = getSelectOptions(Priority);
+const categoryFilterOptions = getSelectOptions(Category);
 
 const Filters = () => {
   const dispatch = useDispatch<AppDispatch>();

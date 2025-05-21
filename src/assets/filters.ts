@@ -1,27 +1,21 @@
 const Priority = {
-  low: "low",
-  medium: "medium",
-  high: "high",
+  low: "Low",
+  medium: "Medium",
+  high: "High",
 } as const;
-
-export type PriorityType = keyof typeof Priority;
 
 const Category = {
   work: "Work",
-  lessons: "lessons",
-  hobby: "hobby",
+  lessons: "Lessons",
+  hobby: "Hobby",
 } as const;
-
-export type CategoryType = keyof typeof Category;
 
 const Status = {
-  backlog: "backlog",
-  todo: "todo",
-  inProgress: "inProgress",
-  testing: "testing",
+  backlog: "Backlog",
+  todo: "Todo",
+  inProgress: "In Progress",
+  testing: "Testing",
   completed: "Completed",
 } as const;
-
-export type StatusType = keyof typeof Status;
 
 export { Category, Priority, Status };

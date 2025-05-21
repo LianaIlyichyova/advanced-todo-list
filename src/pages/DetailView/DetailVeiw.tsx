@@ -22,7 +22,7 @@ import {
 import { spacings } from "@styles/constants";
 
 import { categoryColors, statusColors, priorityColors } from "@assets/colors";
-import type { CategoryType, PriorityType } from "@assets/filters";
+import type { CategoryType, PriorityType } from "@shared-types/filters";
 
 const DetailView = () => {
   const navigate = useNavigate();

@@ -57,7 +57,7 @@ const AddEditContent = ({
       >
         <Select
           placeholder="Select priority"
-          options={getSelectOptions(Object.keys(Priority))}
+          options={getSelectOptions(Priority)}
         />
       </Form.Item>
 
@@ -68,7 +68,7 @@ const AddEditContent = ({
       >
         <Select
           placeholder="Select category"
-          options={getSelectOptions(Object.keys(Category))}
+          options={getSelectOptions(Category)}
         />
       </Form.Item>
       <Form.Item
@@ -78,7 +78,7 @@ const AddEditContent = ({
       >
         <Select
           placeholder="Select status"
-          options={getSelectOptions(Object.keys(Status))}
+          options={getSelectOptions(Status)}
         />
       </Form.Item>
     </Form>
