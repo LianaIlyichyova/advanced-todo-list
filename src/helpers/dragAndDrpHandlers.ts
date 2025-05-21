@@ -4,7 +4,8 @@ import type {
   DragEndEvent,
 } from "@dnd-kit/core";
 
-import type { Todo, TodoStatus } from "@shared-types/todo";
+import type { Todo } from "@shared-types/todo";
+import type { StatusType } from "@shared-types/filters";
 
 import { boardColumns } from "@assets/boardColumns"; // columns definition
 
@@ -63,7 +64,7 @@ export function handleDragEnd(
 
   if (isDroppingOnColumn) {
     // Move todo to new status column and reorder
-    const newStatus = overId as TodoStatus;
+    const newStatus = overId as StatusType;
     const filtered = todos.filter((t) => t.id !== activeId);
     const tasksInColumn = filtered.filter((t) => t.status === newStatus);
 
