@@ -1,13 +1,7 @@
-import { capitalize } from "lodash";
-
-export const getSelectOptions = (options: string[]) => {
-  return options.map((option) => {
-    // Insert space before each uppercase letter and trim any leading/trailing spaces
-    const spaced = option.replace(/([A-Z])/g, " $1").trim();
-
-    const label = capitalize(spaced);
+export const getSelectOptions = (obj: Record<string, string>) => {
+  return Object.entries(obj).map(([value, label]) => {
     return {
-      value: option,
+      value,
       label,
     };
   });

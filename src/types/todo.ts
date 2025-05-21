@@ -1,15 +1,10 @@
-export type TodoStatus =
-  | "backlog"
-  | "inProgress"
-  | "todo"
-  | "completed"
-  | "testing";
+import type { StatusType } from "./filters";
 
 export interface Todo {
   id: string;
   title: string;
   description: string;
-  status: TodoStatus;
+  status: StatusType;
   priority: string;
   category: string;
   order: number;
